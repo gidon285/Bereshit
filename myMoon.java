@@ -21,7 +21,7 @@ public class myMoon {
         return circumference;
     }
     public double calculateGravityForce(double distance){
-        //by formula 6.67 is g constant
+        //by formula 6.67 is g constant - > m/s/s
         return ((6.67* Math.pow(10.0,-11.0)*this.mass)/Math.pow(distance,2));
     }
 }

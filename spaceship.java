@@ -10,13 +10,12 @@ public class spaceship {
     // backwardsFacingMoment = 3 leftFacingMoment = 4 rightFacingMoment = 5
     // main burn rate 0.15 liter per sec, 12 liter per m
     // secondary_burnrate0.009 liter per sec 0.6 liter per m
+    // orbit around the moon 1700 m / s
     private List<Integer> Moments;
     private List<secondaryThruster> secondary_Thrusters;
-    private List<Boolean> states;
     private Thrusther main_Thruster;
-
-    private int height = 2;
-    private int radius = 1;
+    private int height = 2; // in meters
+    private int radius = 1; // in meter
     private double fuel_kg = 420; // in kg
     private double fuel_preecent = 100;
     private int wieght = 165;
@@ -33,7 +32,6 @@ public class spaceship {
     
     spaceship(){
         Moments = new ArrayList<>(Arrays.asList(0,0,0,0,0,0));
-        this.states = new ArrayList<>(Arrays.asList(false,false,false,false,false,false));
         this.secondary_Thrusters = new ArrayList<>();
         for( int i =0; i<7 ; i++){
             this.secondary_Thrusters.add(new secondaryThruster(25, 0.15));

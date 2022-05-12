@@ -3,35 +3,48 @@ package Bereshit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Point{
-    private double x;
-    private double y;
-    private double z;
+
+    private myCordinate x;
+    private myCordinate y;
+    private myCordinate z;
     Point(){
-        this.x = 0;
-        this.y = 0;
-        this.z = 0;
+        this.x = new myCordinate("x",0.0) ;
+        this.y = new myCordinate("y",0.0) ;
+        this.z = new myCordinate("z",0.0) ;
+
     }
     Point(double x , double y , double z){
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.x = new myCordinate("x",x) ;
+        this.y = new myCordinate("y",y) ;
+        this.z = new myCordinate("z",z) ;
     }
-
+    public double getCord(String name){
+        if (Objects.equals(name, "x")){
+            return this.getX();
+        }else if (Objects.equals(name, "y")){
+            return this.getY();
+        }else{
+            return this.getZ();
+        }
+    }
     public double getX() {
-        return x;
+        return x.getValue();
     }
 
     public double getY() {
-        return y;
+        return y.getValue();
     }
 
     public double getZ() {
-        return z;
+        return z.getValue();
     }
-
+    public double getDistanceAxie(myCordinate cord){
+        return this.getCord(cord.getName());
+    }
     public double getDistance(Point other){
-        return Math.sqrt(Math.pow(this.x - other.getX(),2) + Math.pow(this.y - other.getY(),2)+ Math.pow(this.z - other.getZ(),2));
+        return Math.sqrt(Math.pow(this.x.getValue() - other.getX(),2) + Math.pow(this.y.getValue() - other.getY(),2)+ Math.pow(this.z.getValue() - other.getZ(),2));
     }
 }
