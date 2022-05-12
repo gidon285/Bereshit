@@ -1,32 +1,36 @@
-package Drone;
+package Bereshit;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Point{
-    private int x;
-    private int y;
-    private int z;
-
+    private double x;
+    private double y;
+    private double z;
     Point(){
-        x =0;
-        y =0;
-        z =0;
+        this.x = 0;
+        this.y = 0;
+        this.z = 0;
     }
-    Point(int x , int y , int z){
+    Point(double x , double y , double z){
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public int getZ() {
+    public double getZ() {
         return z;
     }
+
     public double getDistance(Point other){
         return Math.sqrt(Math.pow(this.x - other.getX(),2) + Math.pow(this.y - other.getY(),2)+ Math.pow(this.z - other.getZ(),2));
     }
