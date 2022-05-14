@@ -19,6 +19,7 @@ public class Thrusther {
     Thrusther(double thrust, double burn_rate){
         this.thrust = thrust;
         this.burn_rate = burn_rate;
+        this.working = false;
     }
     
 
