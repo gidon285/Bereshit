@@ -31,6 +31,7 @@ public class mySimulation extends JFrame{
     }
     @Override
     public void update(Graphics g){
+        super.update(g);
         if( !this.bereshit.getMainThruster().isWorking()){
             this.mainEng.setBackground(new Color(255, 178, 104));
         }else {
