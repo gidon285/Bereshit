@@ -1,5 +1,4 @@
 package Bereshit;
-
     public class myCordinate{
         private String name;
         double value;

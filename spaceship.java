@@ -1,5 +1,4 @@
 package Bereshit;
-
 import java.util.*;
 import java.lang.*;
 

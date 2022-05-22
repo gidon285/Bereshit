@@ -1,5 +1,4 @@
 package Bereshit;
-
 import java.util.Objects;
 
 public class Vector {

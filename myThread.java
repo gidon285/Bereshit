@@ -1,5 +1,4 @@
 package Bereshit;
-
 import java.util.concurrent.atomic.AtomicBoolean;
 
 class myThread extends Thread{
@@ -7,6 +6,7 @@ class myThread extends Thread{
     mySimulation window;
     AtomicBoolean flag = new AtomicBoolean(false);
     public myThread(String name, mySimulation window){
+        super();
         this.window = window;
         this.window.initialize();
         this.name = name;
@@ -20,17 +20,16 @@ class myThread extends Thread{
                     window.update(window.getGraphics());
                     if (flag.get()) {
                         window.setVisible(false);
-                        Thread.currentThread().stop();
                     }
+
                 } else if (name.equals("cpu")) {
                     if (window.getBereshit().getAltitude() < 100) {
                         flag.set(true);
-                        Thread.currentThread().stop();
                     }
-                    if(window.getBereshit().getTime() % 10 == 0 ) {
+                    if(window.getBereshit().getTime() % 10 == 0 || window.getBereshit().getAltitude() < 100) {
                         System.out.println("alt is: "+window.getBereshit().getAltitude() +" vs is: "+ window.getBereshit().getVerticalSpeed());
                     }
-//                     over 2 km above the ground
+                    // over 2 km above the ground
                     if(window.getBereshit().getAltitude()>2000) {	// maintain a vertical speed of [20-25] m/s
                         if(window.getBereshit().getVerticalSpeed() >25) {window.getBereshit().setNN(window.getBereshit().getNN()+0.003*window.getBereshit().getDt());} // more power for braking
                         if(window.getBereshit().getVerticalSpeed() <20) {window.getBereshit().setNN(window.getBereshit().getNN()-0.003*window.getBereshit().getDt());;} // less power for braking
@@ -83,28 +82,6 @@ class myThread extends Thread{
                 }
             }
         }
-    }
-}
-
-public class Main{
-    private int FPS = 60;
-    private static mySimulation window;
-    public static void main(String args[]) {
-        window = new mySimulation(new spaceship());
-        myThread cpu = new myThread("cpu",window);
-        myThread gui = new myThread("gui",window);
-        cpu.start();
-        gui.start();
-        try {
-            cpu.join();
-            gui.join();
-            System.out.println("done");
-        }
-        catch(Exception e)
-        {
-            System.out.println("Interrupted");
-        }
-
     }
 }
 

@@ -1,5 +1,4 @@
 package Bereshit;
-
 public class Thrusther {
 
     private boolean working;

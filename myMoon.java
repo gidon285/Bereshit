@@ -1,5 +1,4 @@
 package Bereshit;
-
 public class myMoon {
     public Vector center;
     private double radius = 1737000.5; // in meters
